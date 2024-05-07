@@ -1,0 +1,11 @@
+Sử dụng 3 thư viện là: 
+    {
+        "husky": "^9.0.11",
+        "lint-staged": "^15.2.2",
+        "prettier": "^3.2.5"
+    }
+Để format code và kiểm tra msg của commit trước khi commit.
+cmd: 
+    - npm run format -> sử dụng thư viện prettier -> prettier --write ./src/**.{tsx,ts,css} để format lại toàn bộ file code trong src folder với đuôi ext là {tsx,ts,css}
+
+thư viện lint-staged là thư viện dùng để lint các file đã được git add (thêm vào stage) -> là mình có thể format lại code trước khi commit nó.
