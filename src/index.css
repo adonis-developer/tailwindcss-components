@@ -1,11 +1,75 @@
-body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
-        'Droid Sans', 'Helvetica Neue', sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --tw-icon-hover: rgba(0, 0, 0, 0.88);
+    --tw-color-bg-text-hover: rgba(0, 0, 0, 0.06);
+    --tw-font-weight-strong: 600;
+    --tw-font-size-base: 16px;
+    --tw-cancel-color: #95a5a6;
+    --tw-ok-color: #3498db;
 }
 
-code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+@layer components {
+    .open-modal {
+        @apply absolute opacity-20 block;
+    }
+    .close-modal {
+        @apply opacity-0 hidden;
+    }
+    .close-center {
+        @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 scale-0;
+    }
+    .modal-center {
+        @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 scale-100;
+    }
+    .close-top-left {
+        @apply absolute top-[5%] left-[5%] -translate-x-[5%] -translate-y-[5%] scale-0;
+    }
+    .modal-top-left {
+        @apply absolute top-[5%] left-[5%] -translate-x-[5%] -translate-y-[5%] scale-100;
+    }
+    .close-bottom-left {
+        @apply absolute bottom-[5%] left-[5%] -translate-x-[5%] -translate-y-[5%] scale-0;
+    }
+    .modal-bottom-left {
+        @apply absolute bottom-[5%] left-[5%] -translate-x-[5%] -translate-y-[5%] scale-100;
+    }
+    .close-top-right {
+        @apply absolute top-[5%] right-[5%] -translate-x-[5%] -translate-y-[5%] scale-0;
+    }
+    .modal-top-right {
+        @apply absolute top-[5%] right-[5%] -translate-x-[5%] -translate-y-[5%] scale-100;
+    }
+    .close-bottom-right {
+        @apply absolute bottom-[5%] right-[5%] -translate-x-[5%] -translate-y-[5%] scale-0;
+    }
+    .modal-bottom-right {
+        @apply absolute bottom-[5%] right-[5%] -translate-x-[5%] -translate-y-[5%] scale-100;
+    }
+    .close-center-right {
+        @apply absolute top-1/2 right-[5%] -translate-y-1/2 scale-0;
+    }
+    .modal-center-right {
+        @apply absolute top-1/2 right-[5%] -translate-y-1/2 scale-100;
+    }
+    .close-center-top {
+        @apply absolute top-[5%] right-1/2 translate-x-1/2 scale-0;
+    }
+    .modal-center-top {
+        @apply absolute top-[5%] right-1/2 translate-x-1/2 scale-100;
+    }
+    .close-center-left {
+        @apply absolute left-[5%] top-1/2 -translate-y-1/2 scale-0;
+    }
+    .modal-center-left {
+        @apply absolute left-[5%] top-1/2 -translate-y-1/2 scale-100;
+    }
+    .close-center-bottom {
+        @apply absolute bottom-[5%] left-1/2 -translate-x-1/2 scale-0;
+    }
+    .modal-center-bottom {
+        @apply absolute bottom-[5%] left-1/2 -translate-x-1/2 scale-100;
+    }
 }
