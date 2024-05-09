@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react';
 import CloseIcon from '../icons/closeIcon';
 import Button from '../button';
+import { PlacementEnum } from '../types';
 
 type ModalProps = {
     children: React.ReactNode;
@@ -16,16 +17,7 @@ type ModalProps = {
     okText?: React.ReactNode;
     cancelText?: React.ReactNode;
     isOpen?: boolean;
-    placement?:
-        | 'center'
-        | 'top-right'
-        | 'top-left'
-        | 'bottom-left'
-        | 'bottom-right'
-        | 'center-right'
-        | 'center-left'
-        | 'center-top'
-        | 'center-bottom';
+    placement?: PlacementEnum;
 };
 
 function Modal({

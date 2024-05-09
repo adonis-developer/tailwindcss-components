@@ -12,6 +12,7 @@
 }
 
 @layer components {
+    /* MODAL  */
     .open-modal {
         @apply absolute opacity-20 block;
     }
@@ -72,4 +73,97 @@
     .modal-center-bottom {
         @apply absolute bottom-[5%] left-1/2 -translate-x-1/2 scale-100;
     }
+    /* END MODAL */
+
+    /* DROPDOWN */
+    .tw-dropdown {
+        @apply before:content-[''] before:w-full before:h-[1rem] before:bg-transparent before:block before:absolute;
+    }
+    .tw-dropdown.placement-bottom-left,
+    .tw-dropdown.placement-bottom-center,
+    .tw-dropdown.placement-bottom-right {
+        @apply before:top-full;
+    }
+    .tw-dropdown.placement-top-left,
+    .tw-dropdown.placement-top-center,
+    .tw-dropdown.placement-top-right {
+        @apply before:bottom-full;
+    }
+    .tw-dropdown.placement-left-top,
+    .tw-dropdown.placement-left-center,
+    .tw-dropdown.placement-left-bottom {
+        @apply before:w-[1rem] before:h-full before:right-full;
+    }
+    .tw-dropdown.placement-right-top,
+    .tw-dropdown.placement-right-center,
+    .tw-dropdown.placement-right-bottom {
+        @apply before:w-[1rem] before:h-full before:left-full;
+    }
+    .tw-dropdown:hover .tw-dropdown__list:is(.trigger-hover) {
+        display: block;
+    }
+    .tw-dropdown .tw-dropdown__list:is(.trigger-click).open-by-click {
+        display: block;
+    }
+    .tw-dropdown:hover.placement-right-bottom {
+        @apply before:w-full before:h-[200px] before:rotate-45 before:-translate-y-1/2 before:-translate-x-[40%];
+    }
+    .tw-dropdown__list {
+        @apply absolute p-2 bg-white shadow-custom-1 w-max rounded-md;
+        /* before:content-[''] 
+        before:absolute before:top-[-6px] 
+        before:left-4  
+        before:w-3
+        before:h-3
+        before:bg-white
+        before:rounded-tl-sm
+        before:rotate-45
+        before:shadow-custom-6;
+        @apply after:content-[''] 
+        after:absolute
+        after:left-4  
+        after:w-[11px]
+        after:h-[11px]
+        after:bg-white
+        after:top-[-5px]
+        after:rotate-45
+        after:z-[2]; */
+    }
+    .tw-dropdown__list.placement-top-center {
+        @apply bottom-full mb-[1rem] -translate-x-1/2 left-1/2;
+    }
+    .tw-dropdown__list.placement-top-left {
+        @apply bottom-full mb-[1rem] left-[40%];
+    }
+    .tw-dropdown__list.placement-top-right {
+        @apply bottom-full mb-[1rem] right-[40%];
+    }
+    .tw-dropdown__list.placement-right-center {
+        @apply left-full ml-[1rem] -translate-y-1/2;
+    }
+    .tw-dropdown__list.placement-right-top {
+        @apply left-full ml-[1rem] -translate-y-[60%];
+    }
+    .tw-dropdown__list.placement-right-bottom {
+        @apply left-full ml-[1rem] -translate-y-[30%];
+    }
+    .tw-dropdown__list.placement-bottom-center {
+        @apply top-full mt-[1rem] -translate-x-1/2 left-1/2;
+    }
+    .tw-dropdown__list.placement-bottom-left {
+        @apply top-full mt-[1rem] left-[40%];
+    }
+    .tw-dropdown__list.placement-bottom-right {
+        @apply top-full mt-[1rem] right-[40%];
+    }
+    .tw-dropdown__list.placement-left-center {
+        @apply right-full mr-[1rem] -translate-y-1/2;
+    }
+    .tw-dropdown__list.placement-left-top {
+        @apply right-full mr-[1rem] -translate-y-[60%];
+    }
+    .tw-dropdown__list.placement-left-bottom {
+        @apply right-full mr-[1rem] -translate-y-[30%];
+    }
+    /* END DROPDOWN */
 }
