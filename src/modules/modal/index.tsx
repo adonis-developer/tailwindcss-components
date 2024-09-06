@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
-import Modal from '../../components/modal';
 import Button from '../../components/button';
-
+import ModalTW from '../../components/modal';
 function ModalScreen() {
     const [isOpen, setIsOpen] = useState(false);
     const handleCancel = () => setIsOpen(false);
     return (
         <div className="">
             <Button onClick={() => setIsOpen(!isOpen)} text={'OPEN'} />
-            <Modal
-                placement="center-bottom"
+            <ModalTW
+                placement="center"
                 modalPadding="p-4"
                 width={500}
                 isOpen={isOpen}
@@ -47,7 +46,7 @@ function ModalScreen() {
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores a odit repellendus nemo modi
                 repellat aspernatur temporibus voluptatum deleniti veritatis fuga iste, atque reprehenderit enim aut,
                 eveniet expedita nesciunt adipisci!
-            </Modal>
+            </ModalTW>
         </div>
     );
 }

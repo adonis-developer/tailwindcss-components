@@ -15,10 +15,6 @@ export type PlacementEnumDropdown =
     | 'top-left'
     | 'bottom-left'
     | 'bottom-right'
-    | 'bottom-center'
-    | 'right-center'
-    | 'right-top'
-    | 'right-bottom'
-    | 'left-top'
-    | 'left-bottom'
-    | 'left-center';
+    | 'bottom-center';
+
+export type AnimationDropdown = 'fade-in-up' | 'fade-in-down';

@@ -9,6 +9,11 @@
     --tw-font-size-base: 16px;
     --tw-cancel-color: #95a5a6;
     --tw-ok-color: #3498db;
+    --animation-face-in-down: fadeInDown;
+    --animation-face-in-down-out: fadeInDownOut;
+    --animation-face-in-up: fadeInUp;
+    --animation-face-in-up-out: fadeInUpOut;
+    --top-z-index: 99999;
 }
 
 @layer components {
@@ -99,20 +104,25 @@
     .tw-dropdown.placement-right-bottom {
         @apply before:w-[1rem] before:h-full before:left-full;
     }
-    .tw-dropdown:hover .tw-dropdown__list:is(.trigger-hover) {
+    .tw-dropdown .tw-dropdown__list {
+        display: none;
+        opacity: 0;
+    }
+
+    .tw-dropdown:hover .tw-dropdown__list.trigger-hover {
+        opacity: 1;
         display: block;
     }
+
     .tw-dropdown .tw-dropdown__list:is(.trigger-click).open-by-click {
+        opacity: 1;
         display: block;
     }
-    .tw-dropdown:hover.placement-right-bottom {
-        @apply before:w-full before:h-[200px] before:rotate-45 before:-translate-y-1/2 before:-translate-x-[40%];
-    }
+
     .tw-dropdown__list {
-        @apply absolute p-2 bg-white shadow-custom-1 w-max rounded-md;
-        /* before:content-[''] 
-        before:absolute before:top-[-6px] 
-        before:left-4  
+        @apply absolute p-2 bg-white w-max rounded-md z-[var(--top-z-index)]
+        before:content-[''] 
+        before:absolute  
         before:w-3
         before:h-3
         before:bg-white
@@ -121,49 +131,80 @@
         before:shadow-custom-6;
         @apply after:content-[''] 
         after:absolute
-        after:left-4  
         after:w-[11px]
         after:h-[11px]
         after:bg-white
-        after:top-[-5px]
         after:rotate-45
-        after:z-[2]; */
+        after:z-[2];
+    }
+    .tw-dropdown__list.arrow-false {
+        @apply before:hidden after:hidden;
     }
     .tw-dropdown__list.placement-top-center {
-        @apply bottom-full mb-[1rem] -translate-x-1/2 left-1/2;
+        @apply bottom-full mb-[1rem] shadow-custom-2 -translate-x-1/2 left-1/2  before:bottom-[-5px] after:bottom-[-6px] before:left-1/2  after:left-1/2 before:-translate-x-1/2  after:-translate-x-1/2;
+        --transform-x: -50%;
+        animation-name: var(--animation-face-in-down);
     }
     .tw-dropdown__list.placement-top-left {
-        @apply bottom-full mb-[1rem] left-[40%];
+        @apply bottom-full mb-[1rem] shadow-custom-2 left-0 before:left-4  after:left-4 before:bottom-[-5px] after:bottom-[-6px];
+        --transform-x: 0;
+        animation-name: var(--animation-face-in-down);
     }
     .tw-dropdown__list.placement-top-right {
-        @apply bottom-full mb-[1rem] right-[40%];
-    }
-    .tw-dropdown__list.placement-right-center {
-        @apply left-full ml-[1rem] -translate-y-1/2;
-    }
-    .tw-dropdown__list.placement-right-top {
-        @apply left-full ml-[1rem] -translate-y-[60%];
-    }
-    .tw-dropdown__list.placement-right-bottom {
-        @apply left-full ml-[1rem] -translate-y-[30%];
+        @apply bottom-full mb-[1rem] shadow-custom-2 right-0 before:right-4 after:right-4 before:bottom-[-5px] after:bottom-[-6px];
+        --transform-x: 0;
+        animation-name: var(--animation-face-in-down);
     }
     .tw-dropdown__list.placement-bottom-center {
-        @apply top-full mt-[1rem] -translate-x-1/2 left-1/2;
+        @apply top-full mt-[1rem] shadow-custom-1 -translate-x-1/2 left-1/2 before:top-[-6px] after:top-[-5px] before:left-1/2  after:left-1/2 before:-translate-x-1/2  after:-translate-x-1/2;
+        --transform-x: -50%;
+        animation-name: var(--animation-face-in-up);
     }
+
     .tw-dropdown__list.placement-bottom-left {
-        @apply top-full mt-[1rem] left-[40%];
+        @apply top-full mt-[1rem] shadow-custom-1 left-0 before:left-4  after:left-4 before:top-[-6px] after:top-[-5px];
+        --transform-x: 0;
+        animation-name: var(--animation-face-in-up);
     }
     .tw-dropdown__list.placement-bottom-right {
-        @apply top-full mt-[1rem] right-[40%];
+        @apply top-full mt-[1rem] shadow-custom-1 right-0 before:right-4 after:right-4 before:top-[-6px] after:top-[-5px];
+        --transform-x: 0;
+        animation-name: var(--animation-face-in-up);
     }
-    .tw-dropdown__list.placement-left-center {
-        @apply right-full mr-[1rem] -translate-y-1/2;
-    }
-    .tw-dropdown__list.placement-left-top {
-        @apply right-full mr-[1rem] -translate-y-[60%];
-    }
-    .tw-dropdown__list.placement-left-bottom {
-        @apply right-full mr-[1rem] -translate-y-[30%];
-    }
+
     /* END DROPDOWN */
+
+    /* ANIMATION */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translate3d(var(--transform-x), 20%, 0);
+        }
+
+        to {
+            opacity: 1;
+            transform: translate3d(var(--transform-x), 0, 0);
+        }
+    }
+
+    .animation {
+        animation-duration: 0.4s;
+        animation-timing-function: ease-in-out;
+        animation-fill-mode: both;
+        transform-origin: top;
+    }
+
+    @keyframes fadeInDown {
+        from {
+            opacity: 0;
+            transform: translate3d(var(--transform-x), -20%, 0);
+        }
+
+        to {
+            opacity: 1;
+            transform: translate3d(var(--transform-x), 0, 0);
+        }
+    }
+
+    /* END ANIMATION */
 }

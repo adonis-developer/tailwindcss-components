@@ -6,6 +6,7 @@ export type DropdownProps = {
     items: DropdownItemData[];
     trigger?: 'click' | 'hover';
     placement?: PlacementEnumDropdown;
+    arrow?: boolean;
 };
 
 export type DropdownItemData = {
@@ -13,21 +14,18 @@ export type DropdownItemData = {
     key: string;
 };
 
-function Dropdown({ children, items, trigger = 'hover', placement = 'right-bottom' }: DropdownProps) {
+function Dropdown({ children, items, arrow = true, trigger = 'hover', placement = 'bottom-center' }: DropdownProps) {
     const dropdownListRef = useRef<HTMLDivElement | null>(null);
     const handleToggle = () => {
         console.log('click');
 
         if (trigger !== 'click') return;
-        dropdownListRef.current?.classList.contains('open-by-click')
-            ? dropdownListRef.current?.classList.remove('open-by-click')
-            : dropdownListRef.current?.classList.add('open-by-click');
+        dropdownListRef.current?.classList.toggle('open-by-click');
     };
 
     const handleBlur = (e: any) => {
         if (trigger !== 'click') return;
         const isClickedWithinTarget = dropdownListRef.current?.contains(e.relatedTarget);
-
         if (isClickedWithinTarget) {
             return;
         } else {
@@ -40,12 +38,15 @@ function Dropdown({ children, items, trigger = 'hover', placement = 'right-botto
             <div className="tw-dropdown__select w-max relative" onClick={handleToggle}>
                 {children}
             </div>
-            <div ref={dropdownListRef} className={`tw-dropdown__list hidden placement-${placement} trigger-${trigger}`}>
+            <div
+                ref={dropdownListRef}
+                className={`tw-dropdown__list animation  transition-all ease-linear duration-150   placement-${placement} trigger-${trigger} arrow-${arrow}`}
+            >
                 {items.map((item: DropdownItemData, index: number) => {
                     return (
                         <div
                             key={item.key}
-                            className="p-2 bg-white hover:bg-slate-100 cursor-pointer rounded-sm transition-all ease-linear  duration-300"
+                            className=" cursor-pointer rounded-sm transition-all ease-linear  duration-300"
                         >
                             {item.label}
                         </div>
