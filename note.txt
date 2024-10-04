@@ -9,6 +9,4 @@ cmd:
     - npm run format -> sử dụng thư viện prettier -> prettier --write ./src/**.{tsx,ts,css} để format lại toàn bộ file code trong src folder với đuôi ext là {tsx,ts,css}
 
 thư viện lint-staged là thư viện dùng để lint các file đã được git add (thêm vào stage) -> là mình có thể format lại code trước khi commit nó.
-Dev 2 commmit ne
-dev2 noasdkalsdkasl
-asdsad
+dev1 laij commit ne
