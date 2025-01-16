@@ -63,7 +63,7 @@ function DropdownScreen() {
                 />
             </Dropdown>
 
-            <Dropdown items={[...data, ...data]} trigger="hover" placement="top-right">
+            <Dropdown items={[...data, ...data]} trigger="click" placement="top-right">
                 <Button
                     onClick={() => setIsOpen(!isOpen)}
                     text={'hover bottom-right'}
