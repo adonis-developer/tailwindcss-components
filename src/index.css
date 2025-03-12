@@ -207,4 +207,23 @@
     }
 
     /* END ANIMATION */
+    ::-webkit-scrollbar {
+        height: 7px;
+        width: 4px;
+    }
+    ::-webkit-scrollbar {
+        width: 7px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #f0f0f0;
+        -webkit-border-radius: 26px;
+        border-radius: 26px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        -webkit-border-radius: 26px;
+        border-radius: 26px;
+        background: #5f5e5e;
+    }
 }

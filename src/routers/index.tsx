@@ -3,6 +3,8 @@ import Modal from '../modules/modal';
 import DropdownScreen from '../modules/dropdown';
 import ListScreen from '../modules/list';
 import StepsScreen from '../modules/steps';
+import InputGroupScreen from '../modules/input';
+import MealCheck from '../modules/meal-check';
 // const PriceGasOfDay = lazy(() => import('../pages/price-gas-date'));
 
 const publicRoutes: Array<{
@@ -16,6 +18,8 @@ const publicRoutes: Array<{
     { path: '/dropdown', component: DropdownScreen },
     { path: '/list', component: ListScreen },
     { path: '/steps', component: StepsScreen },
+    { path: '/input', component: InputGroupScreen },
+    { path: '/meal', component: MealCheck },
 ];
 
 export { publicRoutes };
